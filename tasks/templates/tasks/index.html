@@ -1,0 +1,15 @@
+{% extends 'tasks/base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+    {% if tasks %}
+        <ol>
+            {% for task in tasks %}
+                <li> <a href="{% url 'task_detail' task.pk%}">{{task.title}}</a></li>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <p>No tasks!</p>
+    {% endif %}
+{% endblock %}
